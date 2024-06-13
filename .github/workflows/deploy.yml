@@ -1,0 +1,14 @@
+              
+name: Deploying WordPress Site
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Deploy WordPress
+                uses: rtCamp/action-deploy-wordpress@v3.1.0
+                on: push
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            
